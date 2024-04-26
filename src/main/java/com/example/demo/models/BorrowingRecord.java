@@ -20,4 +20,11 @@ public class BorrowingRecord {
 
     private LocalDate borrowDate;
     private LocalDate returnDate;
+
+    public BorrowingRecord(Book book, Patron patron, LocalDate borrowDate, LocalDate returnDate) {
+        this.book = book;
+        this.patron = patron;
+        this.borrowDate = borrowDate;
+        this.returnDate = returnDate;
+    }
 }
