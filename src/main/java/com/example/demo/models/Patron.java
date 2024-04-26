@@ -6,6 +6,8 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import lombok.Data;
 
+import javax.validation.constraints.NotBlank;
+
 @Entity
 @Data
 public class Patron {
@@ -14,6 +16,9 @@ public class Patron {
     private Long id;
 
     private String name;
+
+    @NotBlank(message = "Email cannot be blank")
     private String email;
+
     private String mobileNumber;
 }

@@ -42,7 +42,7 @@ public class PatronController {
 
     // PUT /api/patrons/{id}
     @PutMapping("/{id}")
-    public ResponseEntity<Patron> updatePatron(@PathVariable Long id, @RequestBody Patron patron) {
+    public ResponseEntity<Patron> updatePatron(@PathVariable Long id, @RequestBody @Validated Patron patron) {
         return ResponseEntity.ok(patronService.updatePatron(id, patron));
     }
 

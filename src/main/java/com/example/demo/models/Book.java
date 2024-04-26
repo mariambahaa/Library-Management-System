@@ -4,20 +4,25 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-import org.springframework.lang.NonNull;
+
+import javax.validation.constraints.NotBlank;
 
 @Entity
 @Data
+@AllArgsConstructor
 public class Book {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @NonNull
+    @NotBlank(message = "Title cannot be blank")
     private String title;
 
     private String author;
+
     private int publicationYear;
+
     private String isbn;
 }

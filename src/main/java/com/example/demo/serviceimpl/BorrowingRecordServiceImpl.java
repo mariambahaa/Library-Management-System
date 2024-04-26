@@ -7,6 +7,7 @@ import com.example.demo.repositories.BookRepository;
 import com.example.demo.repositories.BorrowingRecordRepository;
 import com.example.demo.repositories.PatronRepository;
 import com.example.demo.service.BorrowingRecordService;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,6 +24,7 @@ public class BorrowingRecordServiceImpl implements BorrowingRecordService {
     BorrowingRecordRepository borrowingRecordRepository;
 
     @Override
+    @Transactional
     public BorrowingRecord borrowBook(Long bookId, Long patronId) {
         Book book = bookRepository.findById(bookId).orElseThrow();
         Patron patron = patronRepository.findById(patronId).orElseThrow();
@@ -31,6 +33,7 @@ public class BorrowingRecordServiceImpl implements BorrowingRecordService {
     }
 
     @Override
+    @Transactional
     public BorrowingRecord returnBook(Long bookId, Long patronId) {
         Book book = bookRepository.findById(bookId).orElseThrow();
         Patron patron = patronRepository.findById(patronId).orElseThrow();
