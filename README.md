@@ -1,4 +1,4 @@
-# Library-Management-System
+# Library-Management-System from master branch not main
 Prerequisites:
 
 Java 17+
